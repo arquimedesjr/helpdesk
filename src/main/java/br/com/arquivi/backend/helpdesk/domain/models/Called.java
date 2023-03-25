@@ -1,7 +1,7 @@
-package br.com.arquivi.backend.helpdesck.domain.models;
+package br.com.arquivi.backend.helpdesk.domain.models;
 
-import br.com.arquivi.backend.helpdesck.domain.enums.Priority;
-import br.com.arquivi.backend.helpdesck.domain.enums.Status;
+import br.com.arquivi.backend.helpdesk.domain.enums.Priority;
+import br.com.arquivi.backend.helpdesk.domain.enums.Status;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.NoArgsConstructor;

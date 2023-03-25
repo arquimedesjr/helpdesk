@@ -1,6 +1,6 @@
-package br.com.arquivi.backend.helpdesck.config;
+package br.com.arquivi.backend.helpdesk.config;
 
-import br.com.arquivi.backend.helpdesck.domain.services.DBServices;
+import br.com.arquivi.backend.helpdesk.domain.services.DBServices;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +14,7 @@ public class TestConfig {
     private final DBServices dbServices;
 
     @Bean
-    public void instanciaDB(){
+    public void instanciaDB() {
         this.dbServices.instanceDB();
     }
 

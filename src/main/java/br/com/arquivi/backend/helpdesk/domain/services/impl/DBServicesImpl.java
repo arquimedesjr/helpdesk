@@ -1,15 +1,15 @@
-package br.com.arquivi.backend.helpdesck.domain.services.impl;
+package br.com.arquivi.backend.helpdesk.domain.services.impl;
 
-import br.com.arquivi.backend.helpdesck.domain.enums.Priority;
-import br.com.arquivi.backend.helpdesck.domain.enums.Profile;
-import br.com.arquivi.backend.helpdesck.domain.enums.Status;
-import br.com.arquivi.backend.helpdesck.domain.models.Called;
-import br.com.arquivi.backend.helpdesck.domain.models.Client;
-import br.com.arquivi.backend.helpdesck.domain.models.Technician;
-import br.com.arquivi.backend.helpdesck.domain.services.DBServices;
-import br.com.arquivi.backend.helpdesck.infrastructure.epositories.CalledRepository;
-import br.com.arquivi.backend.helpdesck.infrastructure.epositories.ClientRepository;
-import br.com.arquivi.backend.helpdesck.infrastructure.epositories.TechnicianRepository;
+import br.com.arquivi.backend.helpdesk.domain.enums.Priority;
+import br.com.arquivi.backend.helpdesk.domain.enums.Profile;
+import br.com.arquivi.backend.helpdesk.domain.enums.Status;
+import br.com.arquivi.backend.helpdesk.domain.models.Called;
+import br.com.arquivi.backend.helpdesk.domain.models.Client;
+import br.com.arquivi.backend.helpdesk.domain.models.Technician;
+import br.com.arquivi.backend.helpdesk.domain.services.DBServices;
+import br.com.arquivi.backend.helpdesk.infrastructure.epositories.CalledRepository;
+import br.com.arquivi.backend.helpdesk.infrastructure.epositories.ClientRepository;
+import br.com.arquivi.backend.helpdesk.infrastructure.epositories.TechnicianRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +17,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class DBServicesImpl implements DBServices{
+public class DBServicesImpl implements DBServices {
 
     private final TechnicianRepository technicianRepository;
     private final ClientRepository clientRepository;

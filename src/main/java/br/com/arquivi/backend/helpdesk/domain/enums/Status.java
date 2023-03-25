@@ -1,4 +1,4 @@
-package br.com.arquivi.backend.helpdesck.domain.enums;
+package br.com.arquivi.backend.helpdesk.domain.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,8 +17,8 @@ public enum Status {
     public static Status toEnum(Integer cod) {
         if (cod == null) return null;
 
-        for(Status x: Status.values()){
-            if(cod.equals(x.getCode())) return x;
+        for (Status x : Status.values()) {
+            if (cod.equals(x.getCode())) return x;
         }
 
         throw new IllegalArgumentException("Status invalid");

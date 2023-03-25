@@ -1,4 +1,4 @@
-package br.com.arquivi.backend.helpdesck.domain.enums;
+package br.com.arquivi.backend.helpdesk.domain.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,8 +17,8 @@ public enum Profile {
     public static Profile toEnum(Integer cod) {
         if (cod == null) return null;
 
-        for(Profile x: Profile.values()){
-            if(cod.equals(x.getCode())) return x;
+        for (Profile x : Profile.values()) {
+            if (cod.equals(x.getCode())) return x;
         }
 
         throw new IllegalArgumentException("Profile invalid");

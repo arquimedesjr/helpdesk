@@ -1,4 +1,4 @@
-package br.com.arquivi.backend.helpdesck.domain.enums;
+package br.com.arquivi.backend.helpdesk.domain.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,8 +17,8 @@ public enum Priority {
     public static Priority toEnum(Integer cod) {
         if (cod == null) return null;
 
-        for(Priority x: Priority.values()){
-            if(cod.equals(x.getCode())) return x;
+        for (Priority x : Priority.values()) {
+            if (cod.equals(x.getCode())) return x;
         }
 
         throw new IllegalArgumentException("Status invalid");

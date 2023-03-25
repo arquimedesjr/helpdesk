@@ -1,6 +1,6 @@
-package br.com.arquivi.backend.helpdesck.domain.models;
+package br.com.arquivi.backend.helpdesk.domain.models;
 
-import br.com.arquivi.backend.helpdesck.domain.enums.Profile;
+import br.com.arquivi.backend.helpdesk.domain.enums.Profile;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
