@@ -1,18 +1,25 @@
 package br.com.arquivi.backend.helpdesck.domain.models;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import br.com.arquivi.backend.helpdesck.domain.enums.Profile;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import java.util.LinkedList;
 import java.util.List;
 
-@NoArgsConstructor
-@Getter
-@Setter
-public class Client extends Person{
+@EqualsAndHashCode(callSuper = true)
+@Data
+@Entity
+public class Client extends Person {
 
+    @OneToMany(mappedBy = "client")
     private List<Called> calleds = new LinkedList<>();
+
+    public Client() {
+        addProfile(Profile.CLIENT);
+    }
 
     public Client(Integer id, String name, String cpf, String mail, String password) {
         super(id, name, cpf, mail, password);
