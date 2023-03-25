@@ -13,7 +13,7 @@
 	<artifactId>helpdesck</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<name>helpdesck</name>
+	<name>helpdesck - backend</name>
 	<description>Project of course Udemy Spring Boot + Angular 12</description>
 
 	<properties>
