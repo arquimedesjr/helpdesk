@@ -1,7 +1,9 @@
 package br.com.arquivi.backend.helpdesk.application.adapters;
 
+import br.com.arquivi.backend.helpdesk.application.dtos.responses.CalledResponse;
 import br.com.arquivi.backend.helpdesk.application.dtos.responses.ClientResponse;
 import br.com.arquivi.backend.helpdesk.application.dtos.responses.TechnicianResponse;
+import br.com.arquivi.backend.helpdesk.domain.models.Called;
 import br.com.arquivi.backend.helpdesk.domain.models.Client;
 import br.com.arquivi.backend.helpdesk.domain.models.Technician;
 
@@ -55,6 +57,34 @@ public class HelpdeskAdapter {
                         .password(x.getPassword())
                         .profiles(x.getProfiles())
                         .dateCreated(x.getDateCreated())
+                        .build()).collect(Collectors.toList());
+    }
+
+    public static CalledResponse toCalledResponse(Called called) {
+        return CalledResponse.builder()
+                .id(called.getId())
+                .observation(called.getObservation())
+                .priority(called.getPriority())
+                .status(called.getStatus())
+                .title(called.getTitle())
+                .technician(called.getTechnician())
+                .client(called.getClient())
+                .dateOpen(called.getDateOpen())
+                .dateClosed(called.getDateClosed())
+                .build();
+    }
+
+    public static List<CalledResponse> toListCalledResponse(List<Called> called) {
+        return called.stream().map(x -> CalledResponse.builder()
+                        .id(x.getId())
+                        .observation(x.getObservation())
+                        .priority(x.getPriority())
+                        .status(x.getStatus())
+                        .title(x.getTitle())
+                        .technician(x.getTechnician())
+                        .client(x.getClient())
+                        .dateOpen(x.getDateOpen())
+                        .dateClosed(x.getDateClosed())
                         .build()).collect(Collectors.toList());
     }
 }

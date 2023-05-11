@@ -1,5 +1,6 @@
 package br.com.arquivi.backend.helpdesk.domain.services;
 
+import br.com.arquivi.backend.helpdesk.domain.models.Called;
 import br.com.arquivi.backend.helpdesk.domain.models.Client;
 import br.com.arquivi.backend.helpdesk.domain.models.Technician;
 
@@ -20,4 +21,16 @@ public interface HelpdeskService {
     Client findByIdClient(Integer id);
 
     List<Client> findAllClient();
+
+    Integer createClient(Client client);
+
+    Client updateClient(Integer id, Client client);
+
+    void deleteClient(Integer id);
+
+    Called findByIdCalled(Integer id);
+
+    List<Called> findAllCalled();
+
+    Integer createCalled(Called called);
 }

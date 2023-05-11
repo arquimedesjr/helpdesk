@@ -41,9 +41,7 @@ public abstract class Person implements Serializable {
     @JsonFormat(pattern = "dd/MM/yyyy")
     protected LocalDate dateCreated = LocalDate.now();
 
-    public Person() {
-        this.addProfile(Profile.CLIENT);
-    }
+    public Person() {}
 
     public Person(Integer id, String name, String cpf, String mail, String password) {
         this.id = id;
@@ -51,7 +49,6 @@ public abstract class Person implements Serializable {
         this.cpf = cpf;
         this.mail = mail;
         this.password = password;
-        this.addProfile(Profile.CLIENT);
     }
 
     public Set<Profile> getProfiles() {

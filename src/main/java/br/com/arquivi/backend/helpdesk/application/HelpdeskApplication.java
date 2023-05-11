@@ -1,7 +1,9 @@
 package br.com.arquivi.backend.helpdesk.application;
 
+import br.com.arquivi.backend.helpdesk.application.dtos.requests.CalledRequest;
 import br.com.arquivi.backend.helpdesk.application.dtos.requests.ClientRequest;
 import br.com.arquivi.backend.helpdesk.application.dtos.requests.TechnicianRequest;
+import br.com.arquivi.backend.helpdesk.application.dtos.responses.CalledResponse;
 import br.com.arquivi.backend.helpdesk.application.dtos.responses.ClientResponse;
 import br.com.arquivi.backend.helpdesk.application.dtos.responses.TechnicianResponse;
 
@@ -28,4 +30,10 @@ public interface HelpdeskApplication {
     ClientResponse updateClient(Integer id, ClientRequest request);
 
     void deleteClient(Integer id);
+
+    CalledResponse findByIdCalled(Integer id);
+
+    List<CalledResponse> findAllCalled();
+
+    Integer createCalled(CalledRequest request);
 }

@@ -1,5 +1,6 @@
 package br.com.arquivi.backend.helpdesk.domain.models;
 
+import br.com.arquivi.backend.helpdesk.application.dtos.requests.CalledRequest;
 import br.com.arquivi.backend.helpdesk.domain.enums.Priority;
 import br.com.arquivi.backend.helpdesk.domain.enums.Status;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -50,5 +51,14 @@ public class Called implements Serializable {
         this.observation = observation;
         this.technician = technician;
         this.client = client;
+    }
+
+    public Called(CalledRequest request, Integer clientId, Integer technicianId) {
+        this.priority = Priority.toEnum(request.getPriority());
+        this.status = Status.toEnum(request.getStatus());
+        this.title = request.getTitle();
+        this.observation = request.getObservation();
+        this.client = new Client(clientId);
+        this.technician = new Technician(technicianId);
     }
 }

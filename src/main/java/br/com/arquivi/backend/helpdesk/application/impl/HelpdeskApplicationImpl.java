@@ -2,10 +2,14 @@ package br.com.arquivi.backend.helpdesk.application.impl;
 
 import br.com.arquivi.backend.helpdesk.application.HelpdeskApplication;
 import br.com.arquivi.backend.helpdesk.application.adapters.HelpdeskAdapter;
+import br.com.arquivi.backend.helpdesk.application.dtos.requests.CalledRequest;
 import br.com.arquivi.backend.helpdesk.application.dtos.requests.ClientRequest;
 import br.com.arquivi.backend.helpdesk.application.dtos.requests.TechnicianRequest;
+import br.com.arquivi.backend.helpdesk.application.dtos.responses.CalledResponse;
 import br.com.arquivi.backend.helpdesk.application.dtos.responses.ClientResponse;
 import br.com.arquivi.backend.helpdesk.application.dtos.responses.TechnicianResponse;
+import br.com.arquivi.backend.helpdesk.domain.models.Called;
+import br.com.arquivi.backend.helpdesk.domain.models.Client;
 import br.com.arquivi.backend.helpdesk.domain.models.Technician;
 import br.com.arquivi.backend.helpdesk.domain.services.HelpdeskService;
 import lombok.RequiredArgsConstructor;
@@ -38,7 +42,6 @@ public class HelpdeskApplicationImpl implements HelpdeskApplication {
 
     @Override
     public TechnicianResponse updateTechnician(Integer id, TechnicianRequest request) {
-        this.helpdeskService.findByIdTechnician(id);
         var technician = this.helpdeskService.updateTechnician(id, new Technician(request));
         return HelpdeskAdapter.toTechnicianResponse(technician);
     }
@@ -62,17 +65,35 @@ public class HelpdeskApplicationImpl implements HelpdeskApplication {
 
     @Override
     public Integer createClient(ClientRequest request) {
-        return null;
+        return this.helpdeskService.createClient(new Client(request));
     }
 
     @Override
     public ClientResponse updateClient(Integer id, ClientRequest request) {
-        return null;
+        var client = this.helpdeskService.updateClient(id, new Client(request));
+        return HelpdeskAdapter.toClientResponse(client);
     }
 
     @Override
     public void deleteClient(Integer id) {
+        this.helpdeskService.deleteClient(id);
+    }
 
+    @Override
+    public CalledResponse findByIdCalled(Integer id) {
+        var called = this.helpdeskService.findByIdCalled(id);
+        return HelpdeskAdapter.toCalledResponse(called);
+    }
+
+    @Override
+    public List<CalledResponse> findAllCalled() {
+        var called = this.helpdeskService.findAllCalled();
+        return HelpdeskAdapter.toListCalledResponse(called);
+    }
+
+    @Override
+    public Integer createCalled(CalledRequest request) {
+        return this.helpdeskService.createCalled(new Called(request, request.getClient(),request.getTechnician()));
     }
 
 

@@ -1,6 +1,7 @@
 package br.com.arquivi.backend.helpdesk.application.dtos.responses;
 
 import br.com.arquivi.backend.helpdesk.domain.enums.Profile;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;
 import lombok.Data;

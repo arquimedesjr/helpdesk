@@ -25,6 +25,10 @@ public class Client extends Person {
         addProfile(Profile.CLIENT);
     }
 
+    public Client(Integer id) {
+        this.id = id;
+    }
+
     public Client(ClientRequest request) {
         this.name = request.getName();
         this.cpf = request.getCpf();
@@ -36,5 +40,6 @@ public class Client extends Person {
 
     public Client(Integer id, String name, String cpf, String mail, String password) {
         super(id, name, cpf, mail, password);
+        addProfile(Profile.CLIENT);
     }
 }

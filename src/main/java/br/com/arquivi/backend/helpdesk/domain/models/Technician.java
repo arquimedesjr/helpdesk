@@ -24,6 +24,10 @@ public class Technician extends Person {
         addProfile(Profile.TECHNICIAN);
     }
 
+    public Technician(Integer id) {
+        this.id = id;
+    }
+
     public Technician(TechnicianRequest request) {
         this.name = request.getName();
         this.cpf = request.getCpf();
