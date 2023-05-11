@@ -96,5 +96,11 @@ public class HelpdeskApplicationImpl implements HelpdeskApplication {
         return this.helpdeskService.createCalled(new Called(request, request.getClient(),request.getTechnician()));
     }
 
+    @Override
+    public CalledResponse updateCalled(Integer id, CalledRequest request) {
+        var called = this.helpdeskService.updateCalled(id, new Called(request, request.getClient(),request.getTechnician()));;
+        return HelpdeskAdapter.toCalledResponse(called);
+    }
+
 
 }

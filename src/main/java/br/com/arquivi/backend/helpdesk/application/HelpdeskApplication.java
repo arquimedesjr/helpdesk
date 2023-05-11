@@ -36,4 +36,6 @@ public interface HelpdeskApplication {
     List<CalledResponse> findAllCalled();
 
     Integer createCalled(CalledRequest request);
+
+    CalledResponse updateCalled(Integer id, CalledRequest request);
 }

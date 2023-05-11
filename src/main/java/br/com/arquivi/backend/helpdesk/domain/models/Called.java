@@ -26,9 +26,9 @@ public class Called implements Serializable {
     private Integer id;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
-    private LocalDate dateOpen = LocalDate.now();
+    private LocalDate dateOpen;
     @JsonFormat(pattern = "dd/MM/yyyy")
-    private LocalDate dateClosed = LocalDate.now();
+    private LocalDate dateClosed;
 
     private Priority priority;
     private Status status;
@@ -60,5 +60,10 @@ public class Called implements Serializable {
         this.observation = request.getObservation();
         this.client = new Client(clientId);
         this.technician = new Technician(technicianId);
+    }
+
+    public void verifyStatus() {
+        if (this.status == Status.CLOSED) this.setDateClosed(LocalDate.now());
+        else if (this.status == Status.OPEN) this.setDateOpen(LocalDate.now());
     }
 }

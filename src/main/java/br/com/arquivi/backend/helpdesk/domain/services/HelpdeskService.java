@@ -33,4 +33,6 @@ public interface HelpdeskService {
     List<Called> findAllCalled();
 
     Integer createCalled(Called called);
+
+    Called updateCalled(Integer id, Called called);
 }

@@ -13,7 +13,6 @@ import br.com.arquivi.backend.helpdesk.infrastructure.repositories.TechnicianRep
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -164,8 +163,24 @@ public class HelpdeskServiceImpl implements HelpdeskService {
 
         called.setClient(client);
         called.setTechnician(technician);
+        called.verifyStatus();
 
         var newCalled = this.calledRepository.save(called);
         return newCalled.getId();
+    }
+
+    @Override
+    public Called updateCalled(Integer id, Called called) {
+        var oldCalled = this.findByIdCalled(id);
+        var client = this.findByIdClient(called.getClient().getId());
+        var technician = this.findByIdTechnician(called.getTechnician().getId());
+
+        called.setClient(client);
+        called.setTechnician(technician);
+        called.setId(oldCalled.getId());
+        called.setDateOpen(oldCalled.getDateOpen());
+        called.verifyStatus();
+
+        return this.calledRepository.save(called);
     }
 }
