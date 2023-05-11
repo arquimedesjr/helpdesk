@@ -7,9 +7,9 @@ import br.com.arquivi.backend.helpdesk.domain.models.Called;
 import br.com.arquivi.backend.helpdesk.domain.models.Client;
 import br.com.arquivi.backend.helpdesk.domain.models.Technician;
 import br.com.arquivi.backend.helpdesk.domain.services.DBServices;
-import br.com.arquivi.backend.helpdesk.infrastructure.epositories.CalledRepository;
-import br.com.arquivi.backend.helpdesk.infrastructure.epositories.ClientRepository;
-import br.com.arquivi.backend.helpdesk.infrastructure.epositories.TechnicianRepository;
+import br.com.arquivi.backend.helpdesk.infrastructure.repositories.CalledRepository;
+import br.com.arquivi.backend.helpdesk.infrastructure.repositories.ClientRepository;
+import br.com.arquivi.backend.helpdesk.infrastructure.repositories.TechnicianRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

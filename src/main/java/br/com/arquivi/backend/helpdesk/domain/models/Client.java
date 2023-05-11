@@ -1,6 +1,9 @@
 package br.com.arquivi.backend.helpdesk.domain.models;
 
+import br.com.arquivi.backend.helpdesk.application.dtos.requests.ClientRequest;
+import br.com.arquivi.backend.helpdesk.application.dtos.requests.TechnicianRequest;
 import br.com.arquivi.backend.helpdesk.domain.enums.Profile;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -14,10 +17,20 @@ import java.util.List;
 @Entity
 public class Client extends Person {
 
+    @JsonIgnore
     @OneToMany(mappedBy = "client")
     private List<Called> calleds = new LinkedList<>();
 
     public Client() {
+        addProfile(Profile.CLIENT);
+    }
+
+    public Client(ClientRequest request) {
+        this.name = request.getName();
+        this.cpf = request.getCpf();
+        this.mail = request.getMail();
+        this.password = request.getPassword();
+        this.profiles = request.getProfiles();
         addProfile(Profile.CLIENT);
     }
 

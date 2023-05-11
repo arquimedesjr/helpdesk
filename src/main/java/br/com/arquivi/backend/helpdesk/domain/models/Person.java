@@ -61,4 +61,13 @@ public abstract class Person implements Serializable {
     public void addProfile(Profile profile) {
         this.profiles.add(profile.getCode());
     }
+
+    public Boolean existCpf(String cpf, Integer id) {
+        return this.cpf != null && this.cpf.equals(cpf) && this.id.equals(id);
+    }
+
+    public Boolean existMail(String mail, Integer id) {
+        return this.mail != null && this.mail.equals(mail) && this.id.equals(id);
+    }
+
 }
